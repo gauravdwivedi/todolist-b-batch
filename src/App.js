@@ -28,12 +28,16 @@ class App extends Component {
   };
 
   handleDelete = (task) => {
+    const { tasks } = this.state;
+
     // use filter to filter out task from array
+
+    let newArray = tasks.filter((item) => item !== task);
+
+    this.setState({ tasks: newArray });
   };
   render() {
     const { task, tasks } = this.state;
-    console.log("task", task);
-    console.log("tasks", tasks);
     return (
       <div style={{ margin: "10%" }}>
         <input onChange={this.handleOnChange} value={task} />
